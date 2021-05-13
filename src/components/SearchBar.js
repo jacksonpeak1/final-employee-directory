@@ -1,8 +1,8 @@
 import React from "react";
 import EmployeeTable from "./EmployeeTable";
 
-function SearchBar(props) {
-  return <div>Hello I am the search bar!<EmployeeTable /></div>;
+function SearchBar({users}) {
+  return <div>Hello I am the search bar!<EmployeeTable users={users} /></div>;
 }
 
 export default SearchBar;
