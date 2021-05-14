@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TableRow from "./TableRow";
 import Table from "react-bootstrap/Table";
 
-function EmployeeTable({ users }) {
+function EmployeeTable({ users, handleSort }) {
   console.log(typeof users);
   console.log(users);
 
@@ -12,7 +12,7 @@ function EmployeeTable({ users }) {
         <thead>
           <tr>
             <th>Image</th>
-            <th>First Name</th>
+            <th onClick={() => handleSort("name")}>First Name</th>
             <th>Last Name</th>
             <th>Phone</th>
             <th>Email</th>
@@ -20,16 +20,7 @@ function EmployeeTable({ users }) {
         </thead>
         <tbody>
           {users.length > 0 &&
-            users.map((user) => (
-              // <tr key={user.email}>
-              //   <td>Picture Here</td>
-              //   <td>Mark</td>
-              //   <td>Otto</td>
-              //   <td>555-666-7777</td>
-              //   <td>MO@gmail.com</td>
-              // </tr>
-              <TableRow key={user.email} />
-            ))}
+            users.map((user) => <TableRow key={user.login.uuid} user={user} />)}
 
           {/* {users && users.forEach((user) => <TableRow />)} */}
         </tbody>

@@ -1,13 +1,13 @@
 import React from "react";
 
-function TableRow() {
+function TableRow({user}) {
   return (
     <tr>
-      <td>Picture Here</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>555-666-7777</td>
-      <td>MO@gmail.com</td>
+      <td><img src={user.picture.thumbnail} alt="profile pic"/></td>
+      <td>{user.name.first}</td>
+      <td>{user.name.last}</td>
+      <td>{user.phone}</td>
+      <td>{user.email}</td>
     </tr>
   );
 }
