@@ -41,27 +41,21 @@ function App() {
     }
     const compareFnc = (a, b) => {
       if (order === "a") {
-        
         if (a[heading] === undefined) {
           return 1;
         } else if (b[heading] === undefined) {
           return -1;
-        }
-        
-        else if (heading === "name") {
+        } else if (heading === "name") {
           return a[heading].first.localeCompare(b[heading].first);
         } else {
           return a[heading] - b[heading];
         }
       } else {
-        
         if (a[heading] === undefined) {
           return 1;
         } else if (b[heading] === undefined) {
           return -1;
-        }
-        
-        else if (heading === "name") {
+        } else if (heading === "name") {
           return b[heading].first.localeCompare(a[heading].first);
         } else {
           return b[heading] - a[heading];
@@ -72,7 +66,6 @@ function App() {
     setFiltered(sortedUsers);
   };
 
-
   return (
     <div className="App">
       <Header />
@@ -80,7 +73,14 @@ function App() {
         id="search"
         className="form-control"
         type="search"
+        placeholder="Search by First Name"
         onChange={(event) => handleChange(event)}
+      />
+       <input
+        id="search"
+        className="form-control"
+        type="search"
+        placeholder="Search by Phone Number"
         onChange={(event) => handleChangePhone(event)}
       />
       <EmployeeTable users={filtered} handleSort={handleSort} />
